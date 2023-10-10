@@ -1,0 +1,94 @@
+@import './base.css';
+
+@layer base {
+  :root {
+    background-color: var(--tg-theme-bg-color);
+  }
+}
+
+@layer components {
+  .btn-tg-primary {
+    @apply bg-tg-btn hover:bg-tg-btn text-tg-btn-text;
+  }
+
+  .btn-tg-secondary {
+    @apply bg-tg-secondary-bg hover:bg-tg-secondary-bg text-tg-hint;
+  }
+
+  .note {
+    &-body {
+      @apply prose 
+        prose-sm  
+        prose-headings:leading-none 
+        prose-headings:m-0 
+        prose-ul:my-3
+        prose-ol:my-3
+        prose-h1:text-2xl 
+        prose-p:text-lg 
+        prose-p:m-0;
+
+      ol {
+        li::marker {
+          font-size: 1.1rem;
+        }
+      }
+
+      ul {
+        li::marker {
+          font-size: 1.1rem;
+        }
+      }
+
+      ul[data-type='taskList'] {
+        list-style: none;
+        padding: 0;
+
+        li {
+          display: flex;
+
+          label {
+            margin-top: 0.2rem;
+            margin-left: -0.5rem;
+            margin-right: 0.75rem;
+
+            input {
+              @apply checkbox checkbox-sm;
+            }
+          }
+        }
+      }
+    }
+
+    &-body-preview {
+      @apply prose 
+        prose-sm
+        prose-headings:font-semibold
+        prose-headings:leading-none 
+        prose-headings:m-0 
+        prose-ul:my-0 
+        prose-ol:my-0 
+        prose-h1:text-lg 
+        prose-p:text-base 
+        prose-p:m-0;
+
+      ul[data-type='taskList'] {
+        list-style: none;
+        padding: 0;
+
+        li {
+          display: flex;
+
+          label {
+            margin-top: 0.2rem;
+            margin-left: -0.3rem;
+            margin-right: 0.65rem;
+
+            input {
+              @apply checkbox checkbox-xs;
+            }
+          }
+        }
+      }
+    }
+  }
+}

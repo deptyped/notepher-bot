@@ -1,0 +1,25 @@
+diff --git a/node_modules/@tiptap/extension-task-item/dist/index.js b/node_modules/@tiptap/extension-task-item/dist/index.js
+index b38d0df..0e2ecc5 100644
+--- a/node_modules/@tiptap/extension-task-item/dist/index.js
++++ b/node_modules/@tiptap/extension-task-item/dist/index.js
+@@ -100,10 +100,17 @@ const TaskItem = Node.create({
+                         .run();
+                 }
+                 if (!editor.isEditable && this.options.onReadOnlyChecked) {
+-                    // Reset state if onReadOnlyChecked returns false
+-                    if (!this.options.onReadOnlyChecked(node, checked)) {
+-                        checkbox.checked = !checkbox.checked;
++                    if (checkbox.checked) {
++                        checkbox.setAttribute('checked', 'checked');
++                    } else {
++                        checkbox.removeAttribute('checked');
+                     }
++                    listItem.dataset.checked = checkbox.checked;
++                    const editorDom = editor.view.dom;
++                    Array.from(editorDom.querySelectorAll('li[data-checked]')).forEach(item => {
++                        item.dataset.type = "taskItem";
++                    });
++                    this.options.onReadOnlyChecked(node, checked, editorDom.innerHTML);
+                 }
+             });
+             Object.entries(this.options.HTMLAttributes).forEach(([key, value]) => {

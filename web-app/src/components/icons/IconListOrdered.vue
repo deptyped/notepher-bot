@@ -1,0 +1,43 @@
+<template>
+  <svg fill="none" stroke="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <line
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+      x1="104"
+      x2="216"
+      y1="128"
+      y2="128"
+    />
+    <line
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+      x1="104"
+      x2="216"
+      y1="64"
+      y2="64"
+    />
+    <line
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+      x1="104"
+      x2="216"
+      y1="192"
+      y2="192"
+    />
+    <polyline
+      points="40 60 56 52 56 108"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+    />
+    <path
+      d="M41.1,152.6a14,14,0,1,1,24.5,13.2L40,200H68"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="16"
+    />
+  </svg>
+</template>
