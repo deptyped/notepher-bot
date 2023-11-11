@@ -154,16 +154,7 @@ Follow these steps to set up and run your bot using this repository:
         HTTPS link to Web App.
     </td>
   </tr>
-  <tr>
-    <td>BOT_WEBHOOK</td>
-    <td>
-        String
-    </td>
-    <td>
-        Webhook endpoint URL, used to configure webhook in <b>production</b> environment.
-    </td>
-  </tr>
-  <tr>
+    <tr>
     <td>LOG_LEVEL</td>
     <td>
         String
@@ -173,6 +164,26 @@ Follow these steps to set up and run your bot using this repository:
         Specifies the application log level. <br/>
         For example, use <code>info</code> for general logging. View the <a href="https://github.com/pinojs/pino/blob/master/docs/api.md#level-string">Pino documentation</a> for more log level options. <br/>
         Defaults to <code>info</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>BOT_MODE</td>
+    <td>
+        String
+    </td>
+    <td>
+        <i>Optional.</i>
+        Specifies method to receive incoming updates. (<code>polling</code> or <code>webhook</code>)
+    </td>
+  </tr>
+  <tr>
+    <td>BOT_WEBHOOK</td>
+    <td>
+        String
+    </td>
+    <td>
+        <i>Optional in <code>polling</code> mode.</i>
+        Webhook endpoint URL, used to configure webhook in <b>production</b> environment.
     </td>
   </tr>
   <tr>
@@ -206,12 +217,13 @@ Follow these steps to set up and run your bot using this repository:
     </td>
   </tr>
   <tr>
-    <td>BOT_ADMIN_USER_ID</td>
+    <td>BOT_ADMINS</td>
     <td>
-        Number or <br> Array of Number
+        Array of Number
     </td>
     <td>
-        <i>Optional.</i> Administrator user ID(s). 
+        <i>Optional.</i> 
+        Administrator user IDs. 
         Use this to specify user IDs that have special privileges, such as executing <code>/setcommands</code>. <br/>
         Defaults to an empty array.
     </td>
