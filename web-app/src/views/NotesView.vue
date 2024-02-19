@@ -69,13 +69,19 @@
       <note-list :notes="regularNotes" />
     </div>
   </div>
+  <settings-button @click="router.push('settings')" />
 </template>
 
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
-import { useWebAppPopup, useWebAppTheme, useWebAppClosingConfirmation } from 'vue-tg'
+import {
+  useWebAppPopup,
+  useWebAppTheme,
+  useWebAppClosingConfirmation,
+  SettingsButton
+} from 'vue-tg'
 import NoteList from '@/components/notes/NoteList.vue'
 import NoteListSkeleton from '@/components/notes/NoteListSkeleton.vue'
 import IconPlus from '@/components/icons/IconPlus.vue'
@@ -107,7 +113,7 @@ const hashtagsStore = useHashtagsStore()
 const searchStore = useSearchStore()
 const syncStore = useSyncStore()
 
-const { isNotesLimitReached } = storeToRefs(configStore)
+const { isNotesLimitReached, config } = storeToRefs(configStore)
 const {
   regularNotes,
   pinnedNotes,
@@ -257,7 +263,9 @@ watch(
 
 onMounted(async () => {
   isOnline.value && (await syncStore.checkTelegramCloudUpdates())
-  isOnline.value && isNeverSynced.value && (await syncStore.syncNotesWithTelegramCloud())
+
+  const isSyncNeeded = isOnline.value && (isNeverSynced.value || config.value.autoSyncWhenAppStarts)
+  isSyncNeeded && (await syncStore.syncNotesWithTelegramCloud())
 
   if (
     isNeverSynced.value === false &&
