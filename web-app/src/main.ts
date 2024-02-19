@@ -14,7 +14,8 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(touchEvents)
+// TODO: remove temporary types fix
+app.use<[]>(touchEvents)
 
 const updateSW = registerSW({
   onNeedRefresh() {

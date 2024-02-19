@@ -14,13 +14,15 @@ if (!userId) {
 export type Config = {
   userId: number
   lastTelegramCloudSync: number
+  autoSyncWhenAppStarts: boolean
 }
 
 export const useConfigStore = defineStore('config', {
   state: () => ({
     config: useLocalStorage<Config>(getLocalStorageKeyForUser('config'), {
       userId,
-      lastTelegramCloudSync: 0
+      lastTelegramCloudSync: 0,
+      autoSyncWhenAppStarts: false
     })
   }),
 

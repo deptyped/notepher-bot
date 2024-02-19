@@ -28,16 +28,19 @@ export const useSyncStore = defineStore('sync', {
   actions: {
     async checkTelegramCloudUpdates() {
       const { getStorageItem } = useWebAppCloudStorage()
+      const configStore = useConfigStore()
 
       try {
-        const remoteNoteValue = await getStorageItem(getConfigStorageKey())
+        const remoteConfigValue = await getStorageItem(getConfigStorageKey())
 
-        if (!remoteNoteValue) return
+        if (!remoteConfigValue) return
 
-        const remoteConfig = deserialize<Config>(remoteNoteValue)
+        const remoteConfig = deserialize<Config>(remoteConfigValue)
 
         this.isSyncOutdated =
           this.lastNotesTelegramCloudSyncTimestamp < remoteConfig.lastTelegramCloudSync
+
+        configStore.config.autoSyncWhenAppStarts = remoteConfig.autoSyncWhenAppStarts
       } catch (error) {
         console.error(error)
       }
