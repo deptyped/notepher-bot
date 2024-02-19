@@ -69,7 +69,6 @@
       <note-list :notes="regularNotes" />
     </div>
   </div>
-  <settings-button @click="router.push('settings')" />
 </template>
 
 <script setup lang="ts">
@@ -80,7 +79,6 @@ import {
   useWebAppPopup,
   useWebAppTheme,
   useWebAppClosingConfirmation,
-  SettingsButton
 } from 'vue-tg'
 import NoteList from '@/components/notes/NoteList.vue'
 import NoteListSkeleton from '@/components/notes/NoteListSkeleton.vue'

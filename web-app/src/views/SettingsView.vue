@@ -1,5 +1,5 @@
 <template>
-  <back-button @click="router.back()"></back-button>
+  <back-button @click="router.push({ name: 'notes' })"></back-button>
   <div class="flex flex-col px-6 pt-2">
     <div class="form-control">
       <label class="cursor-pointer label">

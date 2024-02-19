@@ -5,14 +5,16 @@
         <component :is="Component" />
       </keep-alive>
     </router-view>
+    <settings-button @click="router.push({ name: 'settings' })" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, watch } from 'vue'
-import { RouterView } from 'vue-router'
-import { useWebApp, useWebAppTheme, useWebAppPopup } from 'vue-tg'
+import { RouterView, useRouter } from 'vue-router'
+import { SettingsButton, useWebApp, useWebAppTheme, useWebAppPopup } from 'vue-tg'
 
+const router = useRouter()
 const { initDataUnsafe: initData, close, isVersionAtLeast, ready } = useWebApp()
 const { showAlert } = useWebAppPopup()
 const { colorScheme } = useWebAppTheme()
