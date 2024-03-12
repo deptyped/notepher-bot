@@ -13,7 +13,9 @@ feature.command("start", logHandle("command-start"), (ctx) => {
       ctx.t("open-app"),
       config.WEB_APP_URL,
     ),
-    disable_web_page_preview: true,
+    link_preview_options: {
+      is_disabled: true,
+    },
   });
 });
 
