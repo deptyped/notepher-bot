@@ -39,7 +39,7 @@ Follow these steps to set up and run your bot using this repository:
     After cloning the repository, navigate to the `web-app` directory:
 
     ```bash
-    cd web-app
+    cd apps/web-app
     ```
 
     Run the following command to build the web app:
@@ -49,7 +49,7 @@ Follow these steps to set up and run your bot using this repository:
 
     This command will generate build output resources inside the `dist` directory. You can now deploy these resources as a regular static website to your hosting provider of choice.
 
-    For information on launching the web app in developer mode, please refer to [web-app/README.md](./web-app/README.md)
+    For information on launching the web app in developer mode, please refer to [apps/web-app/README.md](./apps/web-app/README.md)
 
 3. **Configure the Menu Button**
 
@@ -61,12 +61,16 @@ Follow these steps to set up and run your bot using this repository:
 
   **Congrats!** Web App is deployed and available to bot users.
 
-> **Note**
-> The previous steps are focused on deploying web app. If your goal is to have a fully functional bot that also operates within a chat interface, follow the steps below.
+> [!NOTE]
+> At this stage web app is fully functional, further steps are optional.
 
 4. **Environment Variables Setup**
     
-    Once you have completed the web app build and deployment, return to the project's root directory.
+    Once you have completed the web app build and deployment, navigate to the `apps/bot` directory:
+
+    ```bash
+    cd ../bot
+    ```
 
     Create an environment variables file by copying the provided example file:
      ```bash
